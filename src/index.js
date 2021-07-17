@@ -18,7 +18,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketio(server);
 
-const PORT = 3000 || process.env.PORT;
+const port = process.env.PORT || 3000;
 const publicDirectoryPath = path.join(__dirname, "../public");
 
 app.use(express.static(publicDirectoryPath));
@@ -85,6 +85,6 @@ io.on("connection", (socket) => {
 	});
 });
 
-server.listen(PORT, () => {
-	console.log(`Server is up on port: ${PORT}`);
+server.listen(port, () => {
+	console.log(`Server is up on port: ${port}`);
 });
